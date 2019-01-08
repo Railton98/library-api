@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Publication;
 use App\Http\Resources\PublicationResource;
+use Symfony\Component\HttpFoundation\Response;
 
 class PublicationController extends Controller
 {
@@ -62,8 +63,10 @@ class PublicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Publication $publication)
     {
-        //
+        $publication->delete();
+
+        return response()->json($publication, Response::HTTP_NO_CONTENT);
     }
 }
