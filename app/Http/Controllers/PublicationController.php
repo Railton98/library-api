@@ -52,9 +52,11 @@ class PublicationController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Publication $publication)
     {
-        //
+        $publication->update($request->all());
+
+        return new PublicationResource($publication);
     }
 
     /**
