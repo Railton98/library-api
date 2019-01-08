@@ -18,11 +18,6 @@ class PublicationController extends Controller
         $publications = Publication::with('exemplaries')->get();
 
         return PublicationResource::collection($publications);
-
-        // Publication::with('exemplaries')->get();
-        // $publications = Publication::find(1);
-        //
-        // return $publications->exemplaries->count();
     }
 
     /**
@@ -33,7 +28,9 @@ class PublicationController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $publication = Publication::create($request->all());
+
+        return new PublicationResource($publication);
     }
 
     /**
