@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Exemplary;
 use App\Models\Publication;
 use App\Http\Resources\PublicationResource;
 use Symfony\Component\HttpFoundation\Response;
@@ -30,6 +31,14 @@ class PublicationController extends Controller
     public function store(Request $request)
     {
         $publication = Publication::create($request->all());
+
+        // Inserting Exemplaries join with Publications
+        $qtd_exemplaries = $request->qtd_exemplaries;
+        for ($i=0; $i < $qtd_exemplaries; $i++) {
+            Exemplary::create([
+                'publication_id' => $publication->id,
+            ]);
+        }
 
         return new PublicationResource($publication);
     }
