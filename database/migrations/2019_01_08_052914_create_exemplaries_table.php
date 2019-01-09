@@ -17,7 +17,7 @@ class CreateExemplariesTable extends Migration
             $table->increments('id');
             $table->enum('status', ['available', 'not_available'])->default('available');
             $table->unsignedInteger('publication_id');
-            $table->foreign('publication_id')->references('id')->on('publications');
+            $table->foreign('publication_id')->references('id')->on('publications')->onDelete('cascade');
             $table->timestamps();
         });
     }
