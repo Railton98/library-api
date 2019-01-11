@@ -21,10 +21,10 @@ class PublicationResource extends Resource
             'image' => $this->image,
             'type' => $this->type,
             'publication_year' => $this->publication_year,
-            'count_exemplaries' => $this->exemplaries->count(),
-            'exemplaries' => $this->exemplaries,
             'short_description' => $this->short_description,
-            'full_description' => $this->full_description
+            'full_description' => $this->full_description,
+            'count_exemplaries' => $this->exemplaries->count(),
+            'exemplaries' => $this->exemplaries
         ];
     }
 }

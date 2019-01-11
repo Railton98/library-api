@@ -1,7 +1,5 @@
 <?php
 
-use Illuminate\Http\Request;
-
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -31,7 +29,3 @@ Route::group(['prefix' => 'auth', 'namespace' => 'Auth\\'], function() {
 Route::middleware(['jwt.auth'])->group(function() {
     Route::apiResource('publications', 'PublicationController');
 });
-
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
