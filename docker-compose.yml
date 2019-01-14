@@ -24,7 +24,7 @@ services:
   # PHP (with Nginx)
   app:
     image: ambientum/php:7.2-nginx
-    container_name: library-app
+    container_name: library-api
     depends_on:
       - db
     volumes:
